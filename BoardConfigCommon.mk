@@ -123,3 +123,11 @@ BOARD_SEPOLICY_DIRS += device/lge/g3-common/sepolicy
 
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
+
+# TWRP
+TW_THEME := portrait_hdpi
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TW_NO_USB_STORAGE := true
+TW_INCLUDE_JB_CRYPTO := true
+BOARD_SUPPRESS_SECURE_ERASE := true
+RECOVERY_SDCARD_ON_DATA := true
