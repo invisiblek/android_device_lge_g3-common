@@ -158,16 +158,22 @@ public class LgeLteRIL extends RIL implements CommandsInterface {
         }
     }
 
-    // This call causes ril to crash the socket, stopping further communication
+    // This call causes ril to crash the socket on ril versions previous to 10, stopping further communication
     @Override
     public void
     getHardwareConfig (Message result) {
-        riljLog("Ignoring call to 'getHardwareConfig'");
-        if (result != null) {
-            CommandException ex = new CommandException(
-                CommandException.Error.REQUEST_NOT_SUPPORTED);
-            AsyncResult.forMessage(result, null, ex);
-            result.sendToTarget();
+        if(mRilVersion >= 10) {
+            RILRequest rr = RILRequest.obtain(RIL_REQUEST_GET_HARDWARE_CONFIG, result);
+            if (RILJ_LOGD) riljLog(rr.serialString() + "> " + requestToString(rr.mRequest));
+                send(rr);
+        } else {
+            if (result != null) {
+                riljLog("Ignoring call to 'getHardwareConfig' for ril version < 10");
+                CommandException ex = new CommandException(
+                    CommandException.Error.REQUEST_NOT_SUPPORTED);
+                AsyncResult.forMessage(result, null, ex);
+                result.sendToTarget();
+            }
         }
     }
 }
