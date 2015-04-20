@@ -112,6 +112,7 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # Radio
+BOARD_PROVIDES_LIBRIL := true
 BOARD_RIL_CLASS := ../../../device/lge/g3-common/ril/
 
 # SELinux
