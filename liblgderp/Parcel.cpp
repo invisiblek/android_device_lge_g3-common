@@ -1045,6 +1045,11 @@ int64_t Parcel::readInt64() const
     return readAligned<int64_t>();
 }
 
+status_t Parcel::readuInt64(unsigned long long *pArg) const
+{
+    return readAligned(pArg);
+}
+
 status_t Parcel::readPointer(uintptr_t *pArg) const
 {
     status_t ret;
