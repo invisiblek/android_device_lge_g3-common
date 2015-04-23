@@ -185,6 +185,7 @@ PRODUCT_PACKAGES += \
 
 # Radio
 PRODUCT_PACKAGES += \
+    liblgderp \
     libxml2
 
 # Ramdisk
