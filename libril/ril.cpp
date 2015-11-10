@@ -18,7 +18,7 @@
 #define LOG_TAG "RILC"
 
 #include <hardware_legacy/power.h>
-#include <telephony/ril.h>
+#include "telephony/ril.h"
 #include <telephony/ril_cdma_sms.h>
 #include <cutils/sockets.h>
 #include <cutils/jstring.h>

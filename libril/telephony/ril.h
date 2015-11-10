@@ -692,7 +692,7 @@ typedef struct {
                                    (MT only, may be NULL). */
 } RIL_SuppSvcNotification;
 
-#define RIL_CARD_MAX_APPS     8
+#define RIL_CARD_MAX_APPS     12
 
 typedef enum {
     RIL_CARDSTATE_ABSENT   = 0,
