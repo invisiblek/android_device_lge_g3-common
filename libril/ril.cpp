@@ -3438,9 +3438,11 @@ static void sendSimStatusAppInfo(Parcel &p, int num_apps, RIL_AppStatus appStatu
             p.writeInt32(appStatus[i].app_type);
             p.writeInt32(appStatus[i].app_state);
             p.writeInt32(appStatus[i].perso_substate);
+#ifdef THIS_IS_NOT_FOR_LG
             writeStringToParcel(p, (const char*)(appStatus[i].aid_ptr));
             writeStringToParcel(p, (const char*)
                                           (appStatus[i].app_label_ptr));
+#endif
             p.writeInt32(appStatus[i].pin1_replaced);
             p.writeInt32(appStatus[i].pin1);
             p.writeInt32(appStatus[i].pin2);
