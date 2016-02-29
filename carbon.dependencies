@@ -1,0 +1,14 @@
+[
+  {
+    "remote": "gh",
+    "repository": "CarbonROM/android_kernel_lge_g3",
+    "target_path": "kernel/lge/g3"
+    "revision": "cr-4.0"
+  },
+  {
+    "remote": "gh",
+    "repository": "CarbonROM/android_device_qcom_common",
+    "target_path": "device/qcom/common"
+    "revision": "cr-4.0"
+  }
+]
