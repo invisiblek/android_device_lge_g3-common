@@ -313,7 +313,6 @@ on boot
 service charger /charger
     class charger
     critical
-    seclabel u:r:healthd:s0
 
 service set_baseband /vendor/bin/sh /vendor/bin/init.baseband.sh
     class late_start
@@ -330,7 +329,6 @@ service hwaddrs /vendor/bin/hwaddrs
 service init_bluetooth /vendor/bin/sh /vendor/bin/init.qcom.bt.sh
     class core
     user root
-    seclabel u:r:qti_init_shell:s0
     oneshot
     disabled
 
@@ -426,7 +424,6 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
 service qcom-sh /vendor/bin/sh /vendor/bin/init.qcom.sh
     class late_start
     user root
-    seclabel u:r:qti_init_shell:s0
     oneshot
 
 service qmuxd /vendor/bin/qmuxd
@@ -451,7 +448,7 @@ on property:bluetooth.isEnabled=true
 on charger
     # Booting modem
     wait /dev/block/platform/msm_sdcc.1/by-name/modem
-    mount vfat /dev/block/platform/msm_sdcc.1/by-name/modem /firmware ro shortname=lower,uid=1000,gid=1026,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
+    mount vfat /dev/block/platform/msm_sdcc.1/by-name/modem /firmware ro shortname=lower,uid=1000,gid=1026,dmask=227,fmask=337
     wait /dev/block/platform/msm_sdcc.1/by-name/system
     mount ext4 /dev/block/platform/msm_sdcc.1/by-name/system /system ro barrier=1
 
